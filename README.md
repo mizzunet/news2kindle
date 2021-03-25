@@ -21,8 +21,9 @@ Then, it will sleep for twelve hours (adjustable) and do it all over again. The 
 Change into the cloned github repo and execute following docker commands:
 
 ```
+touch -t 202103231024 
 docker build -t news2kindle .
-docker run --env-file <path/to/env/file> news2kindle
+docker run --env-file .env news2kindle
 ```
 
 where the `.env` file contains all the environment variables defined in [news2kindle.py](src/news2kindle.py).
