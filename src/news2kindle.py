@@ -145,7 +145,8 @@ def send_mail(send_from, send_to, subject, text, files):
                 Content_Disposition=f'attachment; filename="{os.path.basename(f)}"',
                 Name=os.path.basename(f)
             ))
-    smtp = smtplib.SMTP_SSL(EMAIL_SMTP, EMAIL_SMTP_PORT)
+    smtp = smtplib.SMTP(EMAIL_SMTP, EMAIL_SMTP_PORT)
+    smptp.starttls()
     smtp.login(EMAIL_USER, EMAIL_PASSWD)
     smtp.sendmail(send_from, send_to, msg.as_string())
     smtp.quit()
